@@ -24,6 +24,52 @@ function filter(arr, func){
             result.push(arr[i])
         }
     }
-
     return result;
+}
+
+function includes(array, target){
+
+	for(let i in array){
+		if(array[i] == target){
+			return true
+		}
+	}
+	return false
+}
+
+function countWords(num, str){
+	let count = num;
+	let words = str.split(' ').length;
+
+	return count + words;
+}
+
+function reduce(array, num, func){
+    let val = num;
+
+    for(let i in array){
+        let sum = func(val, array[i])
+        val = sum;
+    }
+    return val;
+}
+
+function sum(array){
+    return reduce(array, 0, (a, b) => a + b)
+}
+
+function every(array, func){
+    for(let i in array){
+        if(!func(array[i])){
+            return false
+        }
+    }
+    return true;
+}
+
+function some(array, func){
+    for(let i in array){
+        if(func(array[i])){return true}
+    }
+    return false
 }
